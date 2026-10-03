@@ -16,8 +16,10 @@ const region = "eu-north-1"
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
 		cfg := config.New(ctx, "")
-		githubOwner := cfg.Require("githubOwner") // KatieGou
-		appRepo := cfg.Require("appRepo")         // argo-sandbox-app
+		githubOwner := cfg.Require("githubOwner")     // KatieGou
+		appRepo := cfg.Require("appRepo")             // argo-sandbox-app
+		githubOwnerID := cfg.Require("githubOwnerId") // 71438233
+		appRepoID := cfg.Require("appRepoId")         // 1403088479
 
 		// 1. The AWS provider: which region, and tags stamped on every resource.
 		awsProvider, err := aws.NewProvider(ctx, "aws-"+region, &aws.ProviderArgs{
@@ -80,7 +82,7 @@ func main() {
 						{
 							Test:     "StringLike",
 							Variable: "token.actions.githubusercontent.com:sub",
-							Values:   []string{fmt.Sprintf("repo:%s/%s:ref:refs/tags/*", githubOwner, appRepo)},
+							Values:   []string{fmt.Sprintf("repo:%s@%s/%s@%s:ref:refs/tags/*", githubOwner, githubOwnerID, appRepo, appRepoID)},
 						},
 					},
 				},

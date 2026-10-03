@@ -5,3 +5,5 @@ config:
   argo-sandbox-infra:environment: sbx
   argo-sandbox-infra:service: argo-sandbox
   argo-sandbox-infra:repo: KatieGou/argo-sandbox-infra
+  argo-sandbox-infra:githubOwnerId: "71438233"
+  argo-sandbox-infra:appRepoId: "1403088479"
