@@ -1,0 +1,7 @@
+encryptionsalt: v1:wyZg8fdh7jY=:v1:Teq89XcCp9EzInwN:8PwJExsumB939h0aEoW5SEnq9qKAsA==
+config:
+  argo-sandbox-infra:githubOwner: KatieGou
+  argo-sandbox-infra:appRepo: argo-sandbox-app
+  argo-sandbox-infra:environment: sbx
+  argo-sandbox-infra:service: argo-sandbox
+  argo-sandbox-infra:repo: KatieGou/argo-sandbox-infra

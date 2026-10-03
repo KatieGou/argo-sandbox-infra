@@ -1,0 +1,9 @@
+name: argo-sandbox-infra
+runtime: go
+description: Personal Argo CD learning sandbox (ECR, GitHub OIDC, EKS)
+
+backend:
+  url: s3://argo-sandbox-pulumi-state-meinan-127745533311?region=eu-north-1&awssdk=v2
+
+config:
+  pulumi:disable-default-providers: ["*"]
