@@ -7,3 +7,5 @@ config:
   argo-sandbox-infra:repo: KatieGou/argo-sandbox-infra
   argo-sandbox-infra:githubOwnerId: "71438233"
   argo-sandbox-infra:appRepoId: "1403088479"
+  argo-sandbox-infra:eksVersion: "1.36"
+  argo-sandbox-infra:eksEnabled: "true"

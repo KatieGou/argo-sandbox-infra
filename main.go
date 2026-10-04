@@ -131,6 +131,14 @@ func main() {
 			return fmt.Errorf("attaching push policy to ci role: %w", err)
 		}
 
+		// 6. Stage 3: VPC + EKS. Billable (~$3.60/day), so it sits behind a switch:
+		//    pulumi config set eksEnabled true|false && pulumi up
+		if cfg.GetBool("eksEnabled") {
+			if err := newEks(ctx, awsProvider, cfg.Require("eksVersion")); err != nil {
+				return err
+			}
+		}
+
 		// Outputs: values you'll paste into the GitHub Actions workflow in Stage 2.
 		ctx.Export("ecrRepositoryUrl", repo.RepositoryUrl)
 		ctx.Export("ciRoleArn", ciRole.Arn)
